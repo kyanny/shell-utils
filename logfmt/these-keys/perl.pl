@@ -5,10 +5,8 @@
 #   C
 use strict;
 use warnings;
+use feature 'say';
 use List::Util qw(pairs);
-
-# $OUTPUT_RECORD_SEPARATOR
-$\ = "\n";
 
 my @keys = @ARGV;
 undef @ARGV;
@@ -18,7 +16,7 @@ while(<>){
     foreach my $pair (pairs @pairs) {
         foreach my $key (@keys) {
             if ($key eq $pair->[0]) {
-                print $pair->[1];
+                say $pair->[1];
             }
         }
     }
