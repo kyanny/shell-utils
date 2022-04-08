@@ -12,7 +12,7 @@ my @keys = @ARGV;
 undef @ARGV;
 
 while(<>){
-    my @pairs = /(\S+)=("[^"]"|\S+)/g;
+    my @pairs = /(\S+)=("[^"]+"|\S+)/g;
     foreach my $pair (pairs @pairs) {
         foreach my $key (@keys) {
             if ($key eq $pair->[0]) {
