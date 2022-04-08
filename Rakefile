@@ -23,7 +23,6 @@ task :default do
         item.content = File.read(file)
         items << item
       end
-      puts ERB.new(tmpl).result(binding)
       File.write('README.md', ERB.new(tmpl).result(binding))
     end
   end
