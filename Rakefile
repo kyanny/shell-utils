@@ -17,7 +17,7 @@ task :default do
   Dir['**/*'].select{ |dir| File.directory?(dir) }.each do |dir|
     Dir.chdir(dir) do
       items = []
-      Dir['*'].select{ |file| File.file?(file) }.each do |file|
+      Dir['*'].select{ |file| File.file?(file) }.reject{ |file| file.match?(/README\.md/i) }.each do |file|
         item = OpenStruct.new
         item.name = file
         item.content = File.read(file)
